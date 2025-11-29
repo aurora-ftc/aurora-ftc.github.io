@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurora 23295</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #06121f;
+      color: #eafff7;
+    }
+    header {
+      background: linear-gradient(90deg, aquamarine, #00ffcc, #007755);
+      padding: 2.5rem 1rem;
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 900;
+      color: #002815;
+      text-shadow: 0 0 10px #aaffee;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      background: rgba(0, 255, 170, 0.08);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0,255,170,0.2);
+    }
+    nav a {
+      color: aquamarine;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: 0.2s;
+    }
+    nav a:hover {
+      color: #65ffd3;
+      transform: scale(1.1);
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h2 {
+      color: aquamarine;
+      border-bottom: 2px solid #00ffbb;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+    .card {
+      background: rgba(0, 255, 150, 0.06);
+      border: 1px solid rgba(0, 255, 150, 0.25);
+      padding: 1.5rem;
+      margin: 1.2rem 0;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,255,170,0.05);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(0,255,150,0.1);
+      color: aquamarine;
+      margin-top: 4rem;
+      border-top: 1px solid rgba(0,255,170,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>Aurora 23295</header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#robot">Robot</a>
+    <a href="#outreach">Outreach</a>
+    <a href="#sponsors">Sponsors</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="card">
+      <p>Welcome to <strong>Aurora 23295</strong> — an FTC robotics team driven by creativity, precision, and the energy of the aurora borealis. We build competitive robots, pursue engineering excellence, and help inspire the next generation of STEM innovators.</p>
+    </div>
+  </section>
+
+  <section id="robot">
+    <h2>Our Robot</h2>
+    <div class="card">
+      <p>Showcase your robot's drivetrain, mechanisms, sensors, and software. Add CAD renders, subsystem descriptions, or match videos here.</p>
+    </div>
+  </section>
+
+  <section id="outreach">
+    <h2>Outreach & Impact</h2>
+    <div class="card">
+      <p>Share your STEM outreach efforts, community work, and impact metrics. This is great for awards and sponsors.</p>
+    </div>
+  </section>
+
+  <section id="sponsors">
+    <h2>Sponsors</h2>
+    <div class="card">
+      <p>List your sponsors or add a sponsorship packet link. Include logos and highlight how they support the team.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: <em>yourteamemail@example.com</em></p>
+      <p>Instagram / YouTube links can go here.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Aurora 23295 — Designed with passion and aurora energy
+  </footer>
+</body>
+</html>
