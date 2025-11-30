@@ -11,29 +11,21 @@
       font-family: 'Orbitron', sans-serif;
       color: #e0fff8;
       background: #000010;
+      margin: 0;
       padding: 2rem;
     }
 
-    h1 {
+    h1, h2 {
       text-align: center;
       color: #00ffbb;
       text-shadow: 0 0 20px #00ff88;
-      margin-bottom: 2rem;
-    }
-
-    .gallery img {
-      width: 100%;
-      max-width: 800px;
-      margin: 2rem auto;
-      display: block;
-      border-radius: 12px;
-      box-shadow: 0 0 25px rgba(0,255,150,0.25);
+      margin-bottom: 1rem;
     }
 
     .back-button {
       display: inline-block;
       padding: 0.8rem 1.6rem;
-      margin-bottom: 2rem;
+      margin: 1rem auto 3rem auto;
       color: #00ffbb;
       text-decoration: none;
       font-size: 1.2rem;
@@ -42,25 +34,72 @@
       border-radius: 8px;
       transition: 0.3s ease;
       box-shadow: 0 0 10px rgba(0,255,150,0.3);
+      display: block;
+      width: max-content;
     }
-    
+
     .back-button:hover {
       transform: scale(1.1);
       box-shadow: 0 0 20px rgba(0,255,150,0.5);
       color: #a0fff0;
     }
 
+    .team-photo {
+      width: 100%;
+      max-width: 800px;
+      display: block;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0,255,150,0.25);
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-height: 70vh;
+      overflow-y: scroll;
+      padding-right: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0,255,150,0.25);
+    }
+
+    @media (max-width:768px) {
+      .gallery {
+        max-height: 50vh;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <a class="back-button" href="index.html">← Back to Home</a>
+
   <h1>Last Season (2023–2024)</h1>
 
-  <div class="gallery">
-    <!-- Add your images or content here -->
-    <img src="portfolio/page1.png" alt="Portfolio Page 1">
-    <img src="portfolio/page2.png" alt="Portfolio Page 2">
-  </div>
+  <!-- Back to Home Button -->
+  <a class="back-button" href="index.html">← Back to Home</a>
+
+  <!-- Team Photo Section -->
+  <section id="team-photo">
+    <h2>Our Team</h2>
+    <img class="team-photo" src="images/teamphoto.jpg" alt="Aurora 23295 Team">
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="gallery">
+      <img src="portfolio/page1.png" alt="Portfolio Page 1">
+      <img src="portfolio/page2.png" alt="Portfolio Page 2">
+      <img src="portfolio/page3.png" alt="Portfolio Page 3">
+      <!-- Add more pages as needed -->
+    </div>
+  </section>
+
 </body>
 </html>
