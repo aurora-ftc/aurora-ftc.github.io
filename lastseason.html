@@ -7,9 +7,6 @@
 <link rel="icon" href="favicon.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  img {
-    cursor: pointer;
-  }
   body {
     font-family: 'Orbitron', sans-serif;
     color: #e0fff8;
@@ -50,6 +47,11 @@
     border-radius: 12px;
     box-shadow: 0 0 25px rgba(0,255,150,0.25);
     display: block;
+    cursor: zoom-in;
+    transition: 0.3s ease;
+  }
+  .team-photo:hover {
+    transform: scale(1.04);
   }
 
   /* Carousel container */
@@ -62,6 +64,11 @@
     width: 100%;
     border-radius: 12px;
     box-shadow: 0 0 25px rgba(0,255,150,0.25);
+    cursor: zoom-in;
+    transition: 0.3s ease;
+  }
+  .carousel-image:hover {
+    transform: scale(1.04);
   }
 
   /* Navigation arrows */
@@ -117,9 +124,6 @@
     transform: translateY(-90%) scale(1.2);
     box-shadow: 0 0 20px #00ffbb;
     color: #a0fff0;
-  }
-  img:hover{
-    transform: scale(1.1);
   }
   .arrow-left { left: -50px; }
   .arrow-right { right: -50px; }
