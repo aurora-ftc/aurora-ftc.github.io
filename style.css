@@ -81,7 +81,7 @@ h2 {
 .title-section {
   text-align: center;
   background-color: transparent;
-  margin: 0.2rem;
+  margin: 0.2rem auto;
   padding: 1rem;
 }
 
