@@ -72,11 +72,9 @@ h2 {
 }
 
 .pg-title {
-  color: #00ffbb;
   font-size: 3rem;
-  border-bottom: 2px solid #00ffbb;
-  padding-bottom: 0.5rem;
-  margin-bottom: 0.5rem;
+  border-bottom: 0px;
+  margin-bottom: 0rem;
   text-align: center;
 }	
 
