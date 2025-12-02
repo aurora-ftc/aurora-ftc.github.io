@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="favicon.png" type="image/png">
-<title>Aurora - Into the Deep</title>
+<title>Aurora – Last Season</title>
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 </head>
@@ -17,104 +16,110 @@
 
 <nav>
   <a href="index.html">Home</a>
-  <a href="lastseason.html">Last Season</a>
+  <a href="lastseason.html" style="color:#77ffd4;">Last Season</a>
 </nav>
 
 <section>
   <h2>Our Team</h2>
 
-  <img class="team-photo" src="images/teamphoto.jpg" alt="Aurora 23295 Team">
+  <!-- LOW-RES FAST IMAGE -->
+  <img class="team-photo modal-img"
+       src="images/teamphoto-small.jpg"
+       data-full="images/teamphoto-full.jpg"
+       alt="Team photo">
 </section>
 
 <section>
   <h2>Portfolio</h2>
-      <img id="carousel" src="images/portfolio/1.jpg" 
-           style="width:100%; max-width:500px; border-radius:12px; cursor:pointer;">
-      
-      <div style="display:flex; justify-content:center; gap:40px; margin-top:1rem;">
-        <span id="arrow-left" style="font-size:3rem; cursor:pointer;">&#8592;</span>
-        <span id="arrow-right" style="font-size:3rem; cursor:pointer;">&#8594;</span>
-      </div>
+
+  <div class="carousel">
+    <span class="carousel-arrow left">&#10094;</span>
+
+    <div class="carousel-track">
+
+      <!-- You can add as many as you want -->
+      <img class="carousel-img modal-img"
+           src="images/portfolio-small/1.jpg"
+           data-full="images/portfolio/1.jpg">
+
+      <img class="carousel-img modal-img"
+           src="images/portfolio-small/2.jpg"
+           data-full="images/portfolio/2.jpg">
+
+      <img class="carousel-img modal-img"
+           src="images/portfolio-small/3.jpg"
+           data-full="images/portfolio/3.jpg">
+
+    </div>
+
+    <span class="carousel-arrow right">&#10095;</span>
+  </div>
 </section>
 
-<!-- GLOBAL Aurora Modal -->
-<div id="img-modal" class="modal">
-  <span class="modal-close">&times;</span>
-  <img id="expanded-img">
+<!-- GLOBAL MODAL -->
+<div id="imgModal" class="modal">
+  <span class="modal-close" id="modalClose">&times;</span>
+  <span class="modal-arrow left" id="modalPrev">&#10094;</span>
+  <img id="modalImage">
+  <span class="modal-arrow right" id="modalNext">&#10095;</span>
 </div>
 
 <script>
-const images = [
-  'images/portfolio/1.jpg',
-  'images/portfolio/2.jpg',
-  'images/portfolio/3.jpg',
-  'images/portfolio/4.jpg',
-  'images/portfolio/5.jpg',
-  'images/portfolio/6.jpg',
-  'images/portfolio/7.jpg',
-  'images/portfolio/8.jpg',
-  'images/portfolio/9.jpg',
-  'images/portfolio/10.jpg',
-  'images/portfolio/11.jpg',
-  'images/portfolio/12.jpg',
-  'images/portfolio/13.jpg',
-  'images/portfolio/14.jpg',
-  'images/portfolio/15.jpg'
-];
-
-let currentIndex = 0;
-const carousel = document.getElementById('carousel');
-
-function showImage(index){
-  carousel.src = images[index];
-}
-
-// Buttons
-document.getElementById('arrow-left').onclick = () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  showImage(currentIndex);
-};
-document.getElementById('arrow-right').onclick = () => {
-  currentIndex = (currentIndex + 1) % images.length;
-  showImage(currentIndex);
-};
-
-// Arrow keys
-document.addEventListener('keydown', e => {
-  if(e.key === 'ArrowLeft'){
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showImage(currentIndex);
+  // CAROUSEL SCROLL
+  const tracks = document.querySelectorAll(".carousel-track");
+  tracks.forEach(track => {
+    const left = track.parentElement.querySelector(".carousel-arrow.left");
+    const right = track.parentElement.querySelector(".carousel-arrow.right");
+  
+    left.addEventListener("click", () => {
+      track.scrollBy({ left: -350, behavior:"smooth" });
+    });
+  
+    right.addEventListener("click", () => {
+      track.scrollBy({ left: 350, behavior:"smooth" });
+    });
+  });
+  
+  // MODAL SYSTEM
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImage");
+  const closeBtn = document.getElementById("modalClose");
+  const prevBtn = document.getElementById("modalPrev");
+  const nextBtn = document.getElementById("modalNext");
+  
+  const imgs = [...document.querySelectorAll(".modal-img")];
+  let index = 0;
+  
+  imgs.forEach((img, i) => {
+    img.addEventListener("click", () => {
+      index = i;
+      modalImg.src = img.dataset.full;
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+  });
+  
+  function showImage(i) {
+    index = (i + imgs.length) % imgs.length;
+    modalImg.src = imgs[index].dataset.full;
   }
-  else if(e.key === 'ArrowRight'){
-    currentIndex = (currentIndex + 1) % images.length;
-    showImage(currentIndex);
-  }
-});
+  
+  prevBtn.addEventListener("click", () => showImage(index - 1));
+  nextBtn.addEventListener("click", () => showImage(index + 1));
+  
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+  });
+  
+  modal.addEventListener("click", e => {
+    if (e.target === modal) {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+  });
 
-// Modal
-const modal = document.getElementById('img-modal');
-const expandedImg = document.getElementById('expanded-img');
-const closeBtn = document.querySelector('.modal-close');
-
-carousel.addEventListener('click', () => {
-  modal.classList.add('open');
-  expandedImg.src = carousel.src;
-});
-
-document.querySelector('.team-photo').addEventListener('click', e => {
-  modal.classList.add('open');
-  expandedImg.src = e.target.src;
-});
-
-closeBtn.addEventListener('click', () => {
-  modal.classList.remove('open');
-});
-modal.addEventListener('click', e => {
-  if(e.target === modal) modal.classList.remove('open');
-});
 </script>
-
-<!-- Optional: Aurora Background Script (same as on home page) -->
 <script src="bg.js"></script>
 
 </body>
